@@ -3,14 +3,38 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css"
 import styles from './page.module.css'
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Toast } from "bootstrap";
 
 export default function Login() {
-    const [mostrarLogin, setMostrarLogin] = useState(true)
-    const [passwordSee, setPasswordSee] = useState({type:'password',see:true})
+    
+    const [mostrarLogin, setMostrarLogin]   = useState(true)
+    const [passwordSee, setPasswordSee]     = useState({type:'password',see:true})
+    const [EmailInput,setEmailInput]        = useState("")
+    const [PasswordInput,setPasswordInput]  = useState("")
+    const [NomeInput,setNomeInput]          = useState("")
+    const [DataNascInput,setDataNascInput]  = useState("")
+    const [CpfInput,setCpfInput]            = useState("")
+
+    function limparInput(){
+        setPasswordSee({type:'password',see:true})
+        setEmailInput("")
+        setPasswordInput("")
+    }
+
+    function AlertInput(input:string){
+        if(input.trim().length <= 0){
+            var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+            var toastList = toastElList.map(function(toastEl) {
+              return new Toast(toastEl)
+            })
+            toastList.forEach(toast => toast.show()) 
+        }
+    }
     
     function alternarLogin(text: string) {
-        setPasswordSee({type:'password',see:true})
+        limparInput()
+        
         if (text === "c") {
             setMostrarLogin(false)
             return
@@ -27,8 +51,23 @@ export default function Login() {
 
     }
 
+    function btnLogin(){
+        AlertInput("")
+    }
+
     return (
         <main className={styles.box_main}>
+            
+            <div className={`toast ${styles.box_alert}`}>
+                <div className="toast-header">
+                <strong className="me-auto">Toast Header</strong>
+                <button type="button" className="btn-close" data-bs-dismiss="toast"></button>
+                </div>
+                <div className="toast-body">
+                <p>Some text inside the toast body</p>
+                </div>
+            </div>
+
             <div className={styles.box_secund}>
                 <div className={styles.style_box_medium}>
                     <button onClick={() => alternarLogin("c")} className={`${mostrarLogin ? styles.style_btn_none_01 : styles.style_btn_none_02} text-black`}>CADASTRAR</button>
@@ -43,12 +82,20 @@ export default function Login() {
                         <div>
                             <label>Email:</label>
                             <br />
-                            <input className={styles.style_input} type="text" />
+                            <input 
+                                value={EmailInput} 
+                                className={styles.style_input} 
+                                onChange={(e)=>setEmailInput(e.target.value)}
+                                type="text" />
                         </div>
                         <div>
                             <label>senha:</label>
                             <br />
-                            <input className={styles.style_input} type={passwordSee.type} />
+                            <input 
+                                value={PasswordInput}
+                                className={styles.style_input} 
+                                onChange={(e)=>setPasswordInput(e.target.value)}
+                                type={passwordSee.type} />
                             <div className="d-flex">
                                 <input onClick={visualizarSenha} type="checkbox" />
                                 <label className="mx-1">Exibir senha</label>
@@ -58,7 +105,7 @@ export default function Login() {
                             <button className="btn btn-link text-black p-0 py-1">esqueceu a senha?</button>
                         </div>
                         <div className={styles.style_flex_end}>
-                            <button  className={styles.style_btn_default + ' text-black'}>login</button>
+                            <button onClick={btnLogin}  className={styles.style_btn_default + ' text-black'}>login</button>
                         </div>
                     </div>
                 ) : (
