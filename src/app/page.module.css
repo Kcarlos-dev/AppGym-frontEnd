@@ -3,7 +3,7 @@
     top: 5%;
 }
 .box_main{
-    background-color: rgb(190, 190, 190);
+    background: linear-gradient(to bottom right, #aed4bf, #f7fdd2);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -38,6 +38,7 @@
     box-sizing: content-box;
     padding: 2%;
     width: 20vw;
+    background-color: rgba(240, 248, 255, 0.445);
     border: 1px solid black;
     border-radius: 3px;
 }

@@ -1,0 +1,50 @@
+.bg_Princiapal{
+    height: 100vh;
+    overflow-y: auto;
+    background: linear-gradient(to bottom right, #aed4bf, #f7fdd2);
+
+}
+.bg_secundaria{
+    background-color: #bfe0c3 !important;
+}
+.div_default{
+    display: flex;
+    flex-direction: column;
+    margin: 3px;
+    border: 1px solid rgba(0, 0, 0, 0.192);
+    border-radius: 2px;
+    background: none;
+    padding: 0px;
+    box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+}
+.div_default:hover{
+    box-shadow: rgba(160, 236, 37, 0.623) 0px 0px 0px 3px;
+}
+.div_default button{
+    background: none;
+    border: none;
+}
+.div_default p{
+    padding-top: 1%;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+}
+.btn_redondo{
+    width: 30px;
+    height: 30px;
+    background: none;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+@media (min-width: 601px) {
+    .div_default img{
+        width: 18vw;
+        height: 35vh;
+        margin: 0px;
+    }
+    .box_medium{
+        width: 70vw;
+    }
+}
