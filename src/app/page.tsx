@@ -8,6 +8,8 @@ import { useEffect, useReducer, useState } from "react"
 import { Toast } from "bootstrap"
 import { useRouter } from "next/navigation"
 
+const url = "http://192.168.100.220:3000"
+
 export default function Login() {
     const reducer = (state: any, action: any) => {
         switch (action.type) {
@@ -106,7 +108,7 @@ export default function Login() {
         }
 
         axios
-            .post(`http://localhost:3000/user/create`, state)
+            .post(`${url}/user/create`, state)
             .then((res) => {
                 AlertInput(res.data.message,"bg-success")
             })
@@ -130,7 +132,7 @@ export default function Login() {
             return
         }
         axios
-            .post("http://192.168.100.220:3000/login/auth", data)
+            .post(`${url}/login/auth`, data)
             .then((response) => { 
                 if(response.data.length <= 0){
                     AlertInput("Usuario não encontrado","bg-warning text-dark")
@@ -141,7 +143,7 @@ export default function Login() {
                     return
                 }
                 axios
-                    .get("http://192.168.100.220:3000/login/user", {
+                    .get(`${url}/login/user`, {
                         headers: {
                             Authorization: token
                         }

@@ -12,6 +12,8 @@ export default function SetPassword() {
     const [passwordSee, setPasswordSee] = useState({ type: 'password', see: true })
     const [textAlert, settextAlert] = useState("Senhas iguais!!")
     const [bgAlert,setBgAlert] = useState("bg-info")
+    const url = "http://192.168.100.220:3000"
+    
     function visualizarSenha() {
         if (passwordSee.see) {
             setPasswordSee({ type: 'text', see: false })
@@ -49,7 +51,7 @@ export default function SetPassword() {
         }
         
         axios
-        .put(`http://localhost:3000/user/alter/${getProfile.id}`,obj)
+        .put(`${url}/user/alter/${getProfile.id}`,obj)
         .then((res)=>{
             AlertInput(res.data.message,"bg-success")
         })
