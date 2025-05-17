@@ -12,14 +12,14 @@ export default function Treinos({ treino }: Props) {
     const [treinoSuperiores, setTreinoSuperiores] = useState<any[]>([]);
 
     useEffect(() => {
-        const storedProfile = localStorage.getItem("profile");
+        const storedProfile = sessionStorage.getItem("profile");
         if (storedProfile) {
             try {
                 const profile = JSON.parse(storedProfile);
                 setTreinoInferiores(profile?.treino?.inferiores || []);
                 setTreinoSuperiores(profile?.treino?.superiores || []);
             } catch (err) {
-                console.error("Erro ao ler perfil do localStorage:", err);
+                console.error("Erro ao ler perfil do sessionStorage:", err);
             }
         }
     }, []);

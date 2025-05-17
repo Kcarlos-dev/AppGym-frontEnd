@@ -1,36 +1,134 @@
-ESSE FRONTEND SE INTEGRA COM O OUTRO PROJETO: [https://github.com/Kcarlos-dev/AppGym-Backend]
+# AppGym FrontEnd
 
-## Getting Started
+Frontend do projeto **AppGym**, construído com Next.js + TypeScript, para gestão de academias, treinos e perfis de usuários. Integra-se diretamente com o [AppGym-Backend](https://github.com/Kcarlos-dev/AppGym-Backend).
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Sumário
+
+- [Sobre o Projeto](#sobre-o-projeto)
+- [Estrutura de Diretórios](#estrutura-de-diretórios)
+- [Tecnologias Utilizadas](#tecnologias-utilizadas)
+- [Instalação e Execução](#instalação-e-execução)
+- [Scripts Disponíveis](#scripts-disponíveis)
+- [Como Contribuir](#como-contribuir)
+- [Contato](#contato)
+
+---
+
+## Sobre o Projeto
+
+Este repositório contém a interface web do AppGym, permitindo a alunos e gestores de academia:
+- Visualizar treinos e histórico
+- Gerenciar perfis
+- Interagir com a API do backend para operações CRUD
+
+---
+
+## Estrutura de Diretórios
+
+```
+├── next.config.ts           # Configuração Next.js
+├── next-env.d.ts            # Tipagem Next.js para TypeScript
+├── node_modules/            # Dependências instaladas
+├── package.json             # Scripts e dependências
+├── package-lock.json        # Locks de dependências
+├── public/                  # Arquivos estáticos (SVGs, imagens)
+│   ├── file.svg
+│   ├── globe.svg
+│   ├── next.svg
+│   ├── vercel.svg
+│   ├── window.svg
+│   └── img/                 # Imagens do projeto
+├── README.md                # Documentação
+├── src/                     # Código-fonte principal
+│   └── app/                 # Páginas e rotas
+│       ├── components/      # Componentes reutilizáveis
+│       ├── globals.css      # Estilos globais
+│       ├── layout.tsx       # Layout global
+│       ├── page.module.css  # CSS da página principal
+│       ├── page.tsx         # Página inicial
+│       └── profile/         # Página/perfil do usuário
+└── tsconfig.json            # Configuração TypeScript
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Detalhes dos diretórios
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **public/**  
+  SVGs de ícones, logos e arquivos de imagem. O subdiretório `img` guarda imagens do domínio do projeto.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **src/app/components/**  
+  Componentes React reutilizáveis como botões, cards, headers etc.
 
-## Learn More
+- **src/app/profile/**  
+  Rota/página com lógica e componentes relacionados ao perfil do usuário.
 
-To learn more about Next.js, take a look at the following resources:
+- **src/app/layout.tsx**  
+  Layout global compartilhado entre todas as páginas (menu, rodapé etc).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **src/app/page.tsx**  
+  Página inicial, geralmente dashboard ou tela de login/cadastro.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## Tecnologias Utilizadas
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- [Next.js](https://nextjs.org/) (App Router)
+- [React.js](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [CSS Modules](https://nextjs.org/docs/basic-features/built-in-css-support#adding-component-level-css)
+- [Vercel](https://vercel.com/) (deploy e preview)
+- [Node.js](https://nodejs.org/) (backend do Next.js)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## Instalação e Execução
+
+1. **Clone o repositório:**
+   ```bash
+   git clone https://github.com/Kcarlos-dev/AppGym-frontEnd.git
+   cd AppGym-frontEnd
+   ```
+
+2. **Instale as dependências:**
+   ```bash
+   npm install
+   # ou
+   yarn install
+   ```
+
+3. **Execute em modo desenvolvimento:**
+   ```bash
+   npm run dev
+   # ou
+   yarn dev
+   ```
+   Acesse: [http://localhost:3000](http://localhost:3000)
+
+---
+
+## Scripts Disponíveis
+
+- `dev`: Executa em modo desenvolvimento
+- `build`: Faz o build de produção
+- `start`: Inicia o servidor Next.js em produção
+- `lint`: Executa o linter
+
+---
+
+## Como Contribuir
+
+1. Faça um fork do projeto
+2. Crie uma branch (`git checkout -b minha-feature`)
+3. Commit suas mudanças (`git commit -m 'feat: minha feature'`)
+4. Push para o repositório remoto (`git push origin minha-feature`)
+5. Abra um Pull Request
+
+---
+
+## Contato
+
+- Autor: [@Kcarlos-dev](https://github.com/Kcarlos-dev)
+- Dúvidas/sugestões: Via issues ou diretamente no GitHub
+
+---

@@ -8,7 +8,7 @@ import { useState } from "react"
 import axios from "axios"
 
 export default function SetPassword() {
-    const getProfile = JSON.parse(localStorage.getItem("profile") || "")
+    const getProfile = JSON.parse(sessionStorage.getItem("profile") || "")
     const [passwordSee, setPasswordSee] = useState({ type: 'password', see: true })
     const [textAlert, settextAlert] = useState("Senhas iguais!!")
     const [bgAlert,setBgAlert] = useState("bg-info")

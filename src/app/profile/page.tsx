@@ -10,7 +10,7 @@ import { useRouter } from "next/navigation"
 export default function Profile() {
     const [getTela, setTela] = useState(false)
     const [getTreinos, setTreinos] = useState({ tela: false, treino: "" })
-    const getProfile = JSON.parse(localStorage.getItem("profile") || '""');
+    const getProfile = JSON.parse(sessionStorage.getItem("profile") || '""');
     const router = useRouter()
 
 
@@ -21,7 +21,7 @@ export default function Profile() {
         }
     }, [])
     function logout() {
-        localStorage.clear()
+        sessionStorage.clear()
         router.push("/")
     }
     function treinos() {

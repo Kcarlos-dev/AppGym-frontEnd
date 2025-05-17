@@ -40,7 +40,7 @@ export default function Login() {
 
     //
     useEffect(() => {
-        const profile = localStorage.getItem("profile")
+        const profile = sessionStorage.getItem("profile")
 
         if (profile == null || profile == "") {
             return
@@ -149,7 +149,7 @@ export default function Login() {
                         }
                     })
                     .then(async (res) => {
-                        localStorage.setItem("profile", JSON.stringify(res.data.user))
+                        sessionStorage.setItem("profile", JSON.stringify(res.data.user))
                         await router.push('/profile')
                     })
                     .catch((error) => {
